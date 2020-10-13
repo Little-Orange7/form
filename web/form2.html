@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<div class="wy-boxWhite radius10 shadow1" style="width: 700px; min-height: 720px; height: auto; margin: 0 auto;">
+	
+	<!-- form表单的action属性是要提交数据的url链接 ,注意:post请求如果url后有拼接的参数，则一样可以取到，form表单中的数据也正常取-->
+		<form id="form2" name="form2" method="post" enctype="application/x-www-form-urlencoded" 
+		action="http://127.0.0.1:8080/web/form2.do?chl=N" οnsubmit="return beforeSubmit()">
+			姓名:<input id="name" name="name" value="" />
+			学号:<input id="studentNo" name="studentNo" value="" />
+			<!-- 方式二提交 ，要求form必须要有οnsubmit属性-->
+			<input type="submit" value="提交" />
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	//表单提交方式二(推荐)：该方式必须要返回boolean值，true则提交，false则不提交
+	function beforeSubmit() {
+        var studentNo = document.getElementById('studentNo').value;
+        console.log("=====beforeSubmit=========studentNo:"+studentNo);
+        //此处可以做一些提交前的数据校验等操作
+        return true;
+    }
+	</script>
+<style>
+.tishired {
+	height: 30px;
+	background-color: #FFE4E6;
+	border-radius: 4px;
+	color: #ED4954;
+}
+</style>
+
+</html>
