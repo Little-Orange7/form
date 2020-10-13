@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form3</title>
+<script src="./js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+	<div class="wy-boxWhite radius10 shadow1" style="width: 700px; min-height: 720px; height: auto; margin: 0 auto;">
+		<form id="form3" onsubmit="return false" action="##" method="post"><!--action不能为空-->
+			<p>用户名：<input name="userName" type="text" id="userName" tabindex="1" size="15" value=""/></p>
+			<p>密　码：<input name="password" type="password" id="password" tabindex="2" size="16" value=""/></p>
+			<p><input type="button" value="登录" onclick="doLogin()">&nbsp;<input type="reset" value="重置"></p>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	//表单提交方式三(ajax)：该方式必须要返回boolean值，true则提交，false则不提交
+    function doLogin() {
+		console.log("ajax start ...");
+		$.ajax({
+			//几个参数需要注意一下
+			type: "POST",//方法类型
+			dataType: "json",//预期服务器返回的数据类型
+			url: "http://127.0.0.1:8080/web/form3.do" ,//url
+			data: $('#form3').serialize(),
+			success: function (result) {
+				console.log(result);//打印服务端返回的数据(调试用)
+				if (result.resultCode == 200) {
+					alert("成功!");
+				}
+				;
+			},
+			error : function() {
+				alert("异常！");
+			}
+		});
+	}
+	</script>
+<style>
+.tishired {
+	height: 30px;
+	background-color: #FFE4E6;
+	border-radius: 4px;
+	color: #ED4954;
+}
+</style>
+
+</html>

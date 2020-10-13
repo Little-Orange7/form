@@ -2,24 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>form1</title>
 </head>
 <body>
 	<div class="wy-boxWhite radius10 shadow1" style="width: 700px; min-height: 720px; height: auto; margin: 0 auto;">
-	
+
 	<!-- form表单的action属性是要提交数据的url链接 ,注意:post请求如果url后有拼接的参数，则一样可以取到，form表单中的数据也正常取-->
-		<form id="form1" name="form1" method="post" enctype="application/x-www-form-urlencoded" 
-		action="http://127.0.0.1:8080/web/form1.do?chl=N" οnsubmit="return beforeSubmit()">
-			姓名:<input id="name" name="name" value="" />
-			学号:<input id="studentNo" name="studentNo" value="" />
+		<form id="form1" name="form1" method="post" enctype="application/x-www-form-urlencoded"
+		action="http://127.0.0.1:8080/web/form1.do?chl=N">
+			<p>用户名：<input name="userName" type="text" id="userName" tabindex="1" size="15" value=""/></p>
+			<p>密　码：<input name="password" type="password" id="password" tabindex="2" size="16" value=""/></p>
 			<!-- 方式一提交 ，此方式form可以不用要οnsubmit属性-->
-			<input type="button" value="提交" onClick="form01();"/>
+			<p><input type="button" value="登录" onClick="doLogin()">&nbsp;<input type="reset" value="重置"></p>
 		</form>
 	</div>
 </body>
 <script type="text/javascript">
 	//表单的提交方式一：
-	function form01() {
+	function doLogin() {
 		console.log("========form01 submit=============")
 		//获取form标签
 		var form01 = document.getElementById("form1");
